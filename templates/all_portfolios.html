@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Portfolios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    {% if theme == 'dark' %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='style-dark.css') }}">
+    {% else %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% endif %}
+
+</head>
+
+<body>
+    {% include "_header.html" %}
+
+    <div class="all-portfolio-container">
+        <h1 class="all-title">All Portfolios</h1>
+
+        <form method="GET" action="/" style="max-width: 100%; margin-top: 20px; margin-bottom: 20px;">
+            <select class="form-select"
+                    name="skill"
+                    onchange="this.form.submit()">
+
+                <option value="">— All skills —</option>
+
+                {% for tech in tool_icons %}
+                    <option value="{{ tech }}"
+                        {% if current_skill and tech.lower() == current_skill %}selected{% endif %}>
+                        {{ tech }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+        <!-- === /Skill filter form === -->
+
+        <div class="grid">
+            {% for portfolio in portfolios %}
+                <div class="card">
+                    <img src="{{ url_for('static',
+                        filename=portfolio['avatar'] if portfolio['avatar'] else 'placeholder.png') }}"
+                        alt="{{ portfolio['name'] }}">
+                    <a href="{{ url_for('view_portfolio', uuid=portfolio['uuid']) }}" >{{ portfolio['name'] }}</a>
+                    <p class="bio-preview">{{ portfolio['bio'] }}</p>
+
+                    <div class="tool-list">
+                        {% for tech, icon in tool_icons.items() %}
+                            {% if portfolio['skills'] and tech in portfolio['skills'] %}
+                                <span class="badge">{{ icon }} {{ tech }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="{{url_for('form')}}" class="button-secondary">Create new portfolio</a>
+    </div>
+</body>
+</html>

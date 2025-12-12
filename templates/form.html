@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating a portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    {% include "_header.html" %}
+
+    <h1 class="form-title">Create your portfolio</h1>
+      <form action="/generate" method="POST" enctype="multipart/form-data">
+        <label>Name</label>
+          <input type="text" name="name" required>
+        <label>About me</label>
+          <input type="text" name="bio" required>
+        <label>Skills (separated by commas)</label>
+          <input type="text" name="skills" required>
+        <label>GitHub username</label>
+          <input type="text" name="github" required>
+        <label>Telegram</label>
+          <input type="text" name="telegram" required>
+        <label>Upload avatar</label>
+          <input type="file" name="avatar" accept="image/*">
+        <button type="submit">Create</button>
+      </form>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="{{url_for('hello_world')}}" class="button-secondary">Back</a>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+<header class="main-header">
+    <a href="{{ url_for('hello_world') }}" class="logo"><i class="fa-solid fa-house"></i>Home</a>
+
+    <nav class="nav-menu">
+        <a href="{{ url_for('form') }}">Create Portfolio</a>
+
+        <div class="theme-toggle">
+            <span class="theme-icon">
+                <i class="fa-regular fa-sun"></i>
+            </span>
+
+            <!-- celý switch je jeden odkaz, který přepíná režim -->
+            <a href="{{ url_for('set_theme', theme='dark' if theme == 'light' else 'light') }}"
+               class="theme-switch {% if theme == 'dark' %}theme-switch--dark{% endif %}">
+                <span class="theme-switch__thumb"></span>
+            </a>
+
+            <span class="theme-icon">
+                <i class="fa-regular fa-moon"></i>
+            </span>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,380 @@
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.theme-icon i {
+    font-size: 20px;
+    color: #a4a9b8;
+}
+
+/* track */
+.theme-switch {
+    position: relative;
+    display: block;
+    width: 74px;
+    height: 34px;
+    border-radius: 999px;
+    background: #e5e8f0;
+    box-shadow:
+        inset 3px 3px 6px rgba(0, 0, 0, 0.08),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* jezdec */
+.theme-switch__thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px; /* LIGHT pozice */
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f7f8fc;
+    box-shadow:
+        3px 3px 6px rgba(0, 0, 0, 0.18),
+        -3px -3px 6px rgba(255, 255, 255, 0.95);
+    transition: all 0.25s ease;
+}
+
+/* DARK stav */
+.theme-switch--dark {
+    background: #2b3042;
+    box-shadow:
+        inset 3px 3px 6px rgba(0, 0, 0, 0.35),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.05);
+}
+
+.theme-switch--dark .theme-switch__thumb {
+    left: 43px;           /* jezdec doprava */
+    background: #8c92a5;
+    box-shadow:
+        3px 3px 6px rgba(0, 0, 0, 0.4),
+        -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* lehký hover */
+.theme-switch:hover .theme-switch__thumb {
+    transform: translateY(-1px);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-header .logo {
+    font-size: 18px;
+    font-weight: regular;
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* adjust spacing here */
+}
+
+.logo i {
+    margin-right: 8px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.theme-buttons {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-icon {
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 100px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    color: #d8ff4f;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* === FONTS AND BASE === */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* === CONTAINERS === */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px;
+}
+
+.all-portfolio-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.all-title {
+  padding-bottom: 20px;
+  font-size: 32px;
+}
+
+.form-title {
+  text-align: center;
+  padding: 50px 0 20px 0;
+}
+
+/* === FORM === */
+form {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  padding: 40px;
+  margin: auto;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 15px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #a0d911;
+  outline: none;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #d8ff4f;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #c2eb34;
+}
+
+/* === PROFILE === */
+.profile {
+  flex: 0 0 300px;
+  text-align: center;
+  background: white;
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.role {
+  color: gray;
+  font-size: 16px;
+}
+
+/* === INFO PANEL === */
+.info {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 20px;
+  color: gray;
+}
+
+/* === SKILLS AND TOOLS LISTS === */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+ul.skills li::before {
+  content: '🟢';
+  margin-right: 8px;
+}
+
+.badge {
+  background: #eee;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* === PROJECTS === */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.project-box {
+  background: #d8ff4f;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  transition: transform 0.2s ease;
+}
+
+.project-box:hover {
+  transform: scale(1.02);
+}
+
+.project-box h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.project-box p {
+  font-size: 15px;
+  color: #444;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.project-box a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+/* === CARDS ON /all === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+.bio-preview {
+  font-size: 14px;
+  color: #ababab;
+  margin-top: 8px;
+}
+
+/* === BUTTONS === */
+.button-secondary {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #d8ff4f;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.button-secondary:hover {
+  background-color: #d8ff4f;
+  color: #000;
+}
